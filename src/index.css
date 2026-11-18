@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --font-display: "Reem Kufi", "IBM Plex Sans Arabic", sans-serif;
+
+  --color-ink-950: #071f1f;
+  --color-ink-900: #0b2e2d;
+  --color-ink-800: #0d3b3a;
+  --color-ink-700: #1a4e4c;
+  --color-ink-600: #2d6461;
+  --color-ink-500: #4a7b78;
+  --color-ink-400: #7c9e9b;
+  --color-ink-300: #a9c1be;
+
+  --color-sand-50: #faf7f1;
+  --color-sand-100: #f3ece0;
+  --color-sand-200: #e8dcc8;
+  --color-sand-300: #d8c6a6;
+
+  --color-gold-300: #e6c98f;
+  --color-gold-400: #d9b26b;
+  --color-gold-500: #c3974a;
+  --color-gold-600: #a37a35;
+
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade: fade 0.5s ease both;
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-sand-50 text-ink-900 font-sans antialiased; font-variant-numeric: tabular-nums; line-height: 1.65; }
+  ::selection { @apply bg-gold-300 text-ink-950; }
+  :focus-visible { outline: 2px solid var(--color-gold-500); outline-offset: 2px; }
+  input[type=number]::-webkit-inner-spin-button { opacity: .4; }
+}
+
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* نقش هندسي خفيف مستوحى من المشربية */
+.lattice {
+  background-image:
+    linear-gradient(45deg, rgba(217,178,107,.09) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(217,178,107,.09) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.num { font-feature-settings: "tnum"; direction: ltr; unicode-bidi: isolate; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+@media print {
+  body * { visibility: hidden; }
+  #printable, #printable * { visibility: visible; }
+  #printable { position: absolute; inset: 0 auto auto 0; width: 100%; box-shadow: none; max-height: none; overflow: visible; }
+}
