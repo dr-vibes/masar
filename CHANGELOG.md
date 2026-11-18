@@ -4,6 +4,19 @@
 
 ## التغييرات (الأحدث أولًا)
 
+### CHG-20261118-04 - First private GitHub push and CI success
+- Date: 2026-11-18
+- Repository: dr-vibes/masar (Private)
+- Initial Git commit successfully pushed to main.
+- SSH authentication uses a repository-specific Deploy Key.
+- GitHub Actions workflow completed successfully.
+- CI run ID: 44288993613
+- CI job: verify (success, 17 seconds).
+- Advisory: Node.js 20 action deprecation warning.
+- Notice: ubuntu-latest runner migration.
+- No AWS application deployment or Nginx changes.
+- Next: Update HANDOFF and review CI compatibility.
+
 ### CHG-20261118-03 - Documentation transfer guide correction
 - Date: 2026-11-18
 - Scope: docs/INSTALL_DOCS_AR.md
