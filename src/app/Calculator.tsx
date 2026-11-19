@@ -3,6 +3,7 @@ import { BankMark, Card, Field, Icon, NumberField, Switch, TextField, inputCls }
 import { formatSAR, SECTORS, type Offer, type Sector } from '../lib/finance';
 import { useWs } from './store';
 import { EligibilityModal, QuoteModal } from './Documents';
+import SNBReferenceCalculator from './SNBReferenceCalculator';
 
 export function PageHead({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
   return (
@@ -193,6 +194,13 @@ export default function Calculator() {
           )}
         </div>
       </div>
+
+      <section
+        className="mt-8"
+        aria-label="حاسبة البنك الأهلي السعودي التجريبية"
+      >
+        <SNBReferenceCalculator />
+      </section>
 
       {quote && <QuoteModal offer={quote} client={client} agency={agency} onClose={() => setQuote(null)} />}
       {elig && <EligibilityModal client={client} capacity={capacity} best={best} agency={agency} onClose={() => setElig(false)} />}

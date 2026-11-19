@@ -65,6 +65,12 @@ export interface Offer {
   monthlyPMT: number; laterMonthlyPMT: number; firstPeriodMonths: number;
   totalProfit: number; totalRepayment: number; requiredDownPayment: number;
   cappedByPropertyValue: boolean;
+  paymentStages?: {
+    label: string;
+    months: number;
+    monthlyPayment: number;
+  }[];
+  calculationSource?: 'snb-reference';
 }
 const validNum = (v: unknown) => typeof v === 'number' && Number.isFinite(v);
 const num = (v: unknown) => validNum(v) ? Math.max(0, v as number) : 0;
