@@ -4,6 +4,34 @@
 
 ## التغييرات (الأحدث أولًا)
 
+### CHG-20261119-01 - SNB adapter and preview integration
+- Date: 2026-11-19
+- Branch: feature/snb-calculator
+- Added the SNB reference calculator to the Calculator page for preview testing.
+- Added snbOffer.ts to convert SNB results into the shared Offer structure.
+- Extended Offer with optional paymentStages and calculationSource.
+- Added permanent adapter tests in scripts/verify-snb-offer.mjs.
+- Verified supported, standard, property-cap, invalid-payment, and inactive-bank scenarios.
+- Confirmed React preview rendering and browser interaction.
+- Pending: integration into unified bank offers, comparison, and reports.
+- No production deployment, main merge, or GitHub push.
+
+### CHG-20261118-05 - SNB reference calculation engine
+- Date: 2026-11-18
+- Branch: feature/snb-calculator
+- Added src/lib/snb.ts as an isolated calculation engine.
+- Implemented supported and standard financing with three payment periods.
+- Added civilian and military pension reference formulas.
+- Added service-year calculations using year and month inputs.
+- Added chronological date validation and retirement-date guards.
+- Verified 10 Excel reference financing scenarios.
+- Verified 4 pension scenarios and additional validation tests.
+- Verified service-year and monthly-precision scenarios.
+- Existing finance and rental tests continue to pass.
+- SNB reference calculations are not final credit-policy approval.
+- Pending: UI integration, further validation, and user acceptance.
+- No production deployment or GitHub push for this feature.
+
 ### CHG-20261118-04 - First private GitHub push and CI success
 - Date: 2026-11-18
 - Repository: dr-vibes/masar (Private)
